@@ -1,0 +1,21 @@
+<VirtualHost *:80>
+        ServerAdmin ops@example.com
+
+        DocumentRoot /vagrant/webroot
+        <Directory />
+                Options FollowSymLinks
+                AllowOverride None
+        </Directory>
+        <Directory /vagrant/webroot>
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride All
+                Order allow,deny
+                allow from all
+        </Directory>
+
+        ErrorLog /vagrant/logs/apache_error.log
+        LogLevel warn
+        CustomLog /vagrant/logs/apache_error.log combined
+        ServerSignature On
+
+</VirtualHost>
