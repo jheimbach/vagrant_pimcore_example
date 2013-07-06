@@ -9,7 +9,7 @@ Vagrant::Config.run do |config|
   config.vm.box_url = "http://files.vagrantup.com/precise64.box"
   config.ssh.forward_agent = true
   
-  config.vm.forward_port 80, 88
+  config.vm.forward_port 80, 8888
   config.vm.forward_port 3306, 3306
 
   config.vm.provision :chef_solo do |chef|
@@ -26,6 +26,8 @@ Vagrant::Config.run do |config|
 
     chef.add_recipe 'mysql::server'
     chef.add_recipe 'php'
+    chef.add_recipe 'php::module_mysql'
+    chef.add_recipe 'php::module_gd'
     chef.add_recipe 'any'
     chef.json = {
       :git    => {

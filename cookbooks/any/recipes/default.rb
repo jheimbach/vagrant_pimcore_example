@@ -3,11 +3,11 @@ execute "import data" do
 	user "vagrant"
 end
 
-php_pear "xdebug" do
+#php_pear "xdebug" do
   # Specify that xdebug.so must be loaded as a zend extension
-  zend_extensions ['xdebug.so']
-  action :install
-end
+#  zend_extensions ['xdebug.so']
+#  action :install
+#end
 
 Dir.glob("/vagrant/cookbooks/any/files/default/root/**/*") { |x| 
 	next if File.directory? x
@@ -38,3 +38,6 @@ link "/var/www/proj" do
   to "/vagrant/webroot"
 end
 
+link "/vagrant/webroot/pimcore" do
+  to "/vagrant/vendors/pimcore/pimcore"
+end

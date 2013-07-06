@@ -1,0 +1,6 @@
+.idea/*
+.vagrant/*
+webroot/website/var/tmp
+webroot/website/var/cache
+webroot/website/var/log
+webroot/website/var/system
